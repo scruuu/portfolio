@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Portfolio Website",
+    "description": "A personal portfolio built with React and Tailwind CSS.",
+    "tech": ["React", "Tailwind CSS", "Vite"],
+    "github": "https://github.com/scruuu/portfolio"
+  },
+  {
+    "title": "Markdown Renderer",
+    "description": "A markdown renderer component using react-markdown.",
+    "tech": ["React", "react-markdown", "Tailwind CSS"],
+    "github": "https://github.com/scruuu/markdown-renderer"
+  },
+  {
+    "title": "Commit History Viewer",
+    "description": "A fake commit history viewer for demo purposes.",
+    "tech": ["React", "Tailwind CSS"],
+    "github": "https://github.com/scruuu/commit-history"
+  }
+]

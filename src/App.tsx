@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './index.css'
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import MainContent from './components/MainContent';
+import './index.css';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selected, setSelected] = useState('Home');
+  const [darkMode, setDarkMode] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-neutral-900 min-h-screen flex flex-col items-center justify-center text-center text-white">
-      <div className="flex p-8 gap-8">
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo w-32 h-32 transition-transform duration-300 hover:scale-110 hover:rotate-6" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react w-32 h-32 transition-transform duration-300 hover:scale-110 hover:-rotate-6" alt="React logo" />
-        </a>
+    <div className={darkMode ? 'dark bg-[#0d1117] text-[#c9d1d9] min-h-screen font-sans' : 'bg-white text-gray-800 min-h-screen font-sans'}>
+      <Sidebar
+        selected={selected}
+        onSelect={setSelected}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
+      <div className="flex-1 flex flex-col">
+        <Header userName="Ujjawal Vats" repoTitle="portfolio" setIsOpen={setIsOpen} />
+        <main className="max-w-3xl mx-auto p-8 flex-1">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selected}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="flex-1"
+            >
+              <MainContent selected={selected} />
+            </motion.div>
+          </AnimatePresence>
+        </main>
       </div>
-      <h1 className="text-4xl font-bold underline text-cyan-400">Vite + React</h1>
-      <div className="card p-8">
-        <button className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-300" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className="p-4">
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
