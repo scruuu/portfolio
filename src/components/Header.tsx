@@ -7,7 +7,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ userName, repoTitle, setIsOpen }) => (
-  <header className="w-full flex items-center px-6 py-4 border-b border-[#30363d] bg-[#161b22] text-[#c9d1d9] font-sans sticky top-0 z-10 shadow">
+  <header className="w-full flex items-center px-6 py-4 border-b border-[#30363d] bg-transparent backdrop-blur-md text-[#c9d1d9] font-sans sticky top-0 z-10 shadow">
     <button
       className="p-2 rounded text-[#c9d1d9] bg-[#161b22] border border-[#30363d] shadow focus:outline-none"
       onClick={() => setIsOpen(true)}

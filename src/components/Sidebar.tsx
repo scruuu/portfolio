@@ -45,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ selected, onSelect, darkMode, setDark
             exit="closed"
             variants={sidebarVariants}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className={'fixed top-0 left-0 z-20 h-full w-64 bg-[#0d1117] border-r border-[#30363d] p-6 flex flex-col gap-2 font-sans shadow-xl'}
+            className={'fixed top-0 left-0 z-20 h-full w-64 bg-transparent backdrop-blur-md border-r border-[#30363d] p-6 flex flex-col gap-2 font-sans shadow-xl'}
           >
             <div className="flex items-center justify-between mb-4">
               <a href="https://github.com/ujjawalvatsa" target="_blank" rel="noopener noreferrer" className="text-white">
