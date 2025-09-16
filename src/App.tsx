@@ -6,6 +6,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SimpleCard } from './components/SimpleCard';
 import projectsData from './data/projects.json';
 import { useForm, ValidationError } from '@formspree/react';
+// Import assets so Vite processes and hashes them
+import backgroundVideo from './assets/background.mp4';
+import msLogo from './assets/ms.jpg';
+import meImg from './assets/me.png';
+import project1 from './assets/projects/project-1.jpeg';
+import project2 from './assets/projects/project-2.jpeg';
+import project3 from './assets/projects/project-3.jpeg';
+import project4 from './assets/projects/project-4.jpeg';
+import project5 from './assets/projects/project-5.jpeg';
+import project6 from './assets/projects/project-6.jpeg';
 
 // Add Inter font (similar to Proxima Nova)
 import '@fontsource/inter/300.css'; // light
@@ -64,7 +74,7 @@ const App: React.FC = () => {
           muted
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source src="/src/assets/background.mp4" type="video/mp4" />
+          <source src={backgroundVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
@@ -177,7 +187,7 @@ const App: React.FC = () => {
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 px-8 md:px-16 lg:px-24">
           <div className="md:col-span-1 self-center mr-8">
             <img 
-              src="/src/assets/ms.jpg" 
+              src={msLogo} 
               alt="Morgan Stanley" 
               className="w-full h-auto object-cover shadow-lg" 
             />
@@ -268,7 +278,14 @@ const App: React.FC = () => {
             >
               <div className="relative h-full">
                 <img 
-                  src={`/src/assets/projects/project-${index + 1}.jpeg`}
+                  src={
+                    index === 0 ? project1 :
+                    index === 1 ? project2 :
+                    index === 2 ? project3 :
+                    index === 3 ? project4 :
+                    index === 4 ? project5 :
+                    project6
+                  }
                   alt={project.title}
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -297,7 +314,7 @@ const App: React.FC = () => {
                 className="relative rounded-lg overflow-hidden shadow-xl"
               >
                 <img 
-                  src="/src/assets/me.png" 
+                  src={meImg} 
                   alt="Ujjawal Vats"
                   className="w-full aspect-square object-cover" 
                 />
