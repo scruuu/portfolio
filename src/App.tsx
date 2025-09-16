@@ -7,7 +7,7 @@ import { SimpleCard } from './components/SimpleCard';
 import projectsData from './data/projects.json';
 import { useForm, ValidationError } from '@formspree/react';
 // Import assets so Vite processes and hashes them
-import backgroundVideo from './assets/background.mp4';
+import backgroundVideo from '/background.mp4';
 import msLogo from './assets/ms.jpg';
 import meImg from './assets/me.png';
 import project1 from './assets/projects/project-1.jpeg';
