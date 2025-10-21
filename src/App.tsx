@@ -252,26 +252,30 @@ const App: React.FC = () => {
                   </div>
                   <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-700">
                     <span className="text-sm text-gray-400 font-['Inter']">{project.date}</span>
-                    <a 
-                      href={`https://github.com/yourusername/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-gray-300 transition-all transform hover:-translate-y-1 hover:translate-x-1 group"
-                    >
-                      <svg 
-                        className="w-8 h-8 transform -rotate-45" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth={2.5}
-                        viewBox="0 0 24 24"
+                    {project.url && project.url !== '404' ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-gray-300 transition-all transform hover:-translate-y-1 hover:translate-x-1 group"
                       >
-                        <path 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round" 
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
-                    </a>
+                        <svg
+                          className="w-8 h-8 transform -rotate-45"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          />
+                        </svg>
+                      </a>
+                    ) : (
+                      <span className="text-sm text-gray-500">No link available</span>
+                    )}
                   </div>
                 </div>
               }
